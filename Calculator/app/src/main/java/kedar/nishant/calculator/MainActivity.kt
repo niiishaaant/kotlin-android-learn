@@ -77,17 +77,18 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun performOperation(value: String, operation: String) {
-        if(operand1==null)
-            operand1 = value.toDouble()
+        if(operand1==null){
+            operand1 = value.toDouble()}
         else {
-            if(pendingOperation == "=")
-                pendingOperation = operation
+            operand2 = value.toDouble()
+            if(pendingOperation == "="){
+                pendingOperation = operation}
             when (pendingOperation){
                 "=" -> operand1=operand2
-                "/" -> if(operand1 == 0.0)
-                    operand1 = Double.NaN
-                else
-                    operand1 = operand1!! / operand2
+                "/" -> if(operand1 == 0.0){
+                    operand1 = Double.NaN}
+                else{
+                    operand1 = operand1!! / operand2}
                 "*"->operand1 = operand1!! * operand2
                 "-"->operand1 = operand1!! - operand2
                 "+"->operand1 = operand1!! + operand2
